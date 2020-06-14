@@ -1,0 +1,13 @@
+//下划线开头的模块，他将告诉sass不要将其编译到css文件中，导入该文件时不需要添加下划线
+// config
+@import "variables";
+
+// layout
+@import "reboot";
+
+// mixin
+@import "mixins";
+
+// button
+@import "../components//button/style";
+
