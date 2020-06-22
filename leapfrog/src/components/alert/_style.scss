@@ -1,0 +1,33 @@
+.alert {
+    position: relative;
+    color: $white;
+    font-weight: $alert-font-weight;
+    font-family: $alert-font-family;
+    font-size: $alert-font-size;
+    padding: $alert-padding-y $alert-padding-x;
+    margin-bottom: $alert-margin-bottom;
+    line-height: $alert-line-height;
+    border-radius: $alert-border-radius;
+    opacity: .9;
+}
+
+.alert-success {
+    background-color: $alert-success-background;
+}
+
+.alert-info {
+    background-color: $alert-info-background;
+}
+
+.alert-warning {
+    background-color: $alert-warning-background;
+}
+
+.alert-error {
+    background-color: $alert-error-background;
+}
+
+.alert-description {
+    display: block;
+    font-size: $alert-description-font-size;
+}

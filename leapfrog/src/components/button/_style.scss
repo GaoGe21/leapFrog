@@ -13,7 +13,6 @@
     box-shadow: $btn-box-shadow;
     cursor: pointer;
 
-    // transition: $btn-transition;
     &[disabled] {
         cursor: not-allowed;
         opacity: $btn-disabled-opacity;
@@ -34,15 +33,15 @@
 }
 
 .btn-primary {
-    @include button-style($primary, $primary, $white)
+    @include button-style($primary, $primary, $gray-100)
 }
 
 .btn-danger {
-    @include button-style($danger, $danger, $white)
+    @include button-style($danger, $danger, $gray-100)
 }
 
 .btn-default {
-    @include button-style($white, $gray-400, $body-color, $white, $primary, $primary)
+    @include button-style($gray-100, $gray-400, $body-color, $gray-100, $primary, $primary)
 }
 
 .btn-link {
@@ -66,5 +65,6 @@
     &.disabled {
         color: $btn-link-disabled-color;
         pointer-events: none;
+        cursor: not-allowed;
     }
 }
