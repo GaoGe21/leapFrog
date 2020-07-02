@@ -27,8 +27,8 @@ const disabledProps: ButtonProps = {
     disabled: true,
     onClick: jest.fn()
 }
-describe("case: button component", () => {
-    it("test button component common setting", () => {
+describe("button组件单元测试", () => {
+    it("正常渲染button标签， 默认公共class为btn，disabled为false", () => {
         const wrapper = render(<Button>ok</Button>)
         const element = wrapper.getByText("ok") as HTMLButtonElement
         expect(element).toBeTruthy()
@@ -37,7 +37,7 @@ describe("case: button component", () => {
         expect(element).toHaveClass("btn")
         expect(element.disabled).toBeFalsy()
     })
-    it("test default button case", () => {
+    it("default类型正常渲染，class为btn-default，点击时调用onClick", () => {
         const wrapper = render(<Button {...defaultProps}>default</Button>)
         const element = wrapper.getByText("default")
         expect(element).toBeInTheDocument()
@@ -46,19 +46,19 @@ describe("case: button component", () => {
         expect(defaultProps.onClick).toHaveBeenCalled()
 
     })
-    it("test primary Large button case", () => {
+    it("primary&large类型正常渲染，class为btn-primary btn-large klass", () => {
         const wrapper = render(<Button {...primaryLargeProps}>primary</Button>)
         const element = wrapper.getByText("primary")
         expect(element).toBeInTheDocument()
         expect(element).toHaveClass("btn-primary btn-large klass")
     })
-    it("test danger Small button case", () => {
+    it("danger&small类型正常渲染，class为btn-danger btn-small", () => {
         const wrapper = render(<Button {...dangerProps}>danger</Button>)
         const element = wrapper.getByText("danger")
         expect(element).toBeInTheDocument()
         expect(element).toHaveClass("btn-danger btn-small")
     })
-    it("test link button case", () => {
+    it("link类型正常渲染A标签，class为btn-link，点击时调用onClick", () => {
         const wrapper = render(<Button {...linkProps}>link</Button>)
         const element = wrapper.getByText("link")
         expect(element).toBeInTheDocument()
@@ -67,7 +67,7 @@ describe("case: button component", () => {
         fireEvent.click(element)
         expect(linkProps.onClick).toHaveBeenCalled()
     })
-    it("test should render disabled button when disabled is true", () => {
+    it("disabled为true时灰显，点击时调用onClick", () => {
         const wrapper = render(<Button {...disabledProps}>disabled</Button>)
         const element = wrapper.getByText("disabled") as HTMLButtonElement
         expect(element).toBeInTheDocument()

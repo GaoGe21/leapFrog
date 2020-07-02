@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classnames from "classnames";
 
 export interface BaseAlertProps {
@@ -7,6 +7,7 @@ export interface BaseAlertProps {
     className?: string;
     closable?: boolean;
     type?: AlertType;
+    onClose?: () => void;
 }
 
 export enum AlertType {
@@ -17,13 +18,25 @@ export enum AlertType {
 }
 
 const Alert: React.FC<BaseAlertProps> = (props) => {
-    const { message, description, className, type } = props;
+    const [isHidden, setHidden] = useState(false);
+
+    const { message, description, className, type, closable } = props;
     const alertStyle = classnames("alert", className, { [`alert-${type}`]: type });
+    const onCloseAlert = () => {
+        setHidden(true);
+    }
     return <>
-        <div className={alertStyle}>
-            <span className="alert-message">{message}</span>
-            <span className="alert-description">{description}</span>
-        </div>
+        {!isHidden &&
+            <div className={alertStyle}>
+                <span className="alert-message">{message}</span>
+                <span className="alert-description">{description}</span>
+                {closable &&
+                    <span className="alert-close-icon" onClick={onCloseAlert}>
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-Cancelcontrol"></use>
+                        </svg>
+                    </span>}
+            </div>}
     </>;
 }
 

@@ -9,6 +9,19 @@
     line-height: $alert-line-height;
     border-radius: $alert-border-radius;
     opacity: .9;
+
+    .alert-description {
+        display: block;
+        font-size: $alert-description-font-size;
+    }
+
+    .alert-close-icon {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        margin: 12px;
+        cursor: pointer;
+    }
 }
 
 .alert-success {
@@ -25,9 +38,4 @@
 
 .alert-error {
     background-color: $alert-error-background;
-}
-
-.alert-description {
-    display: block;
-    font-size: $alert-description-font-size;
 }
